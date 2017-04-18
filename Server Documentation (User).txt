@@ -1,0 +1,50 @@
+get_user method:
+
+curl -X "GET" localhost:3000/sessions/8  -H "Content-Type: application/json"
+
+{"User":{"id":8,"name":"Bob","created_at":"2017-04-18T02:56:18.392Z","updated_at":"2017-04-18T02:56:18.392Z","friends":null,"numpics":null,"password":null}}
+
+_______________________________________________
+create_user method:
+
+
+curl -X "POST" localhost:3000/sessions/Arrian/passwordword  -H "Content-Type: application/json" -d “"
+
+*where it says “Arrian” you have to put in the username of the person you are creating, and where it says “passwordword”  you have to put in the password
+
+{}
+
+*returns empty JSON
+
+_______________________________________________
+destroy_user method:
+
+curl -X "DELETE" localhost:3000/sessions/13  -H "Content-Type: application/json”
+
+*where it says “13” give the id of the user you want to destroy
+*note: the id of each user remains the same, so if you remove id number “13” then the user id’s will be 11,12,14 (their indexes in the table readjust but their id is like a serial code that won’t change)
+
+{"Size":17}
+
+*returns number of users (cuz... y not?)
+_______________________________________________
+update_name method:
+
+curl -X "GET" localhost:3000/sessions/1/Roberto/edit_name  -H "Content-Type: application/json”
+
+*where it says “1” you have to put in the id of the person whose name you are updating, and where it says “Roberto”  you have to put in the new name
+
+{"Name":"Roberto”}
+
+*returns the new name
+
+_______________________________________________
+add_friend method:
+
+curl -X "GET" localhost:3000/sessions/22/20/edit_friends  -H "Content-Type: application/json”
+
+*the first number (22) is the id of the user whom you are adding a friend to and the second number is the id of the friend whom you are adding
+
+{"FriendIds":"[]21"}
+
+*the output here is the array of all the ids of the user’s friends —I find it questionable
