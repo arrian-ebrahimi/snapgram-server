@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   def add_friend
     user = User.find(params[:user_id])
 
-    checkExisting = user.find_by(id: params[:friend_id])
+    #checkExisting = user.find_by(id: params[:friend_id])
 
     #if checkExisting == nil
       user.friends = user.friends + 1
