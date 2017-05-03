@@ -31,18 +31,18 @@ class SessionsController < ApplicationController
   def add_friend
     user = User.find(params[:user_id])
 
-    #checkExisting = user.find_by(id: params[:friend_id])
+    checkExisting = user.find(params[:friend_id])
 
-    #if checkExisting == nil
+    if checkExisting == nil
       user.friends = user.friends + 1
       user.listoffriends << params[:friend_id].to_s
 
       user.save
 
       render json: {FriendIds: user.listoffriends}.to_json, :content_type => 'application/json'
-    #else
-    #  render json: {Error: "Duplicate"}.to_json, :content_type => 'application/json'
-    #end
+    else
+      render json: {Error: "Duplicate"}.to_json, :content_type => 'application/json'
+    end
   end
 
   def log_in
