@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   def add_friend
     user = User.find(params[:user_id])
 
-    checkExisting = user.find_by id: params[:friend_id]
+    checkExisting = user.find_by(id: params[:friend_id])
 
     if checkExisting == nil
       user.friends = user.friends + 1
@@ -43,5 +43,18 @@ class SessionsController < ApplicationController
     else
       render json: {Error: "Duplicate"}.to_json, :content_type => 'application/json'
     end
+  end
+
+  def log_in
+    user = User.find(params[:name])
+
+    if params[:password] == user.password
+      render json: {Accept: "True"}.to_json, :content_type => 'application/json'
+    end
+
+    render json: {Accept: "False"}.to_json, :content_type => 'application/json'
+  end
+
+  def log_out
   end
 end
