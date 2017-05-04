@@ -10,6 +10,10 @@ class SessionsController < ApplicationController
   end
 
   def get_id_by_name
+    puts "fedfssedf"
+    puts params[:name]
+    puts "--------"
+    
     @id = 0
     @user = User.all
 
