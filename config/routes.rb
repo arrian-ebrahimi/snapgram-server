@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'sessions/:id', to: 'sessions#get_user'
-  post 'sessions/:name/:password', to: 'sessions#create_new_user'
+  #post 'sessions/:name/:password', to: 'sessions#create_new_user'
   delete 'sessions/:id', to: 'sessions#destroy_user'
   get 'sessions/:id/:new_name/edit_name', to: 'sessions#update_name'
   get 'sessions/:user_id/:friend_id/edit_friends', to: 'sessions#add_friend'
-  get 'sessions/:name/:password/check', to: 'sessions#log_in'
+  get 'sessions/:name/:password', to: 'sessions#log_in'
   #get 'photos(/:id)', to: :display
   #get '/sessions'  => 'sessions#get_user', :defaults => { :id => 1 }
 
