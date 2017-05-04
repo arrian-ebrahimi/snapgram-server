@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'sessions/:name', to: 'sessions#get_user'
+  get 'sessions/:id', to: 'sessions#get_user'
+  get 'sessions/:name', to: 'sessions#get_id_by_name'
   post 'sessions/:name/:password', to: 'sessions#create_new_user'
   delete 'sessions/:id', to: 'sessions#destroy_user'
   get 'sessions/:id/:new_name/edit_name', to: 'sessions#update_name'

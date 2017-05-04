@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     render json: {}.to_json, :content_type => 'application/json'
   end
 
-  def get_user
+  def get_id_by_name
     id = nil
 
     User.each do | row |
@@ -17,8 +17,10 @@ class SessionsController < ApplicationController
         id = row.id
       end
     end
-    
-    render json: {User: User.find(id)}.to_json, :content_type => 'application/json'
+  end
+
+  def get_user
+    render json: {User: User.find(params[:id])}.to_json, :content_type => 'application/json'
   end
 
   def destroy_user
