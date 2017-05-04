@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def log_in
+  def enter
     put "TESTESTTEST"
 
     #user = User.find(params[:name])
