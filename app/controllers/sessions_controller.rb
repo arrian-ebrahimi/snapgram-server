@@ -49,10 +49,10 @@ class SessionsController < ApplicationController
     user = User.find(params[:name])
 
     if params[:password] == user.password
-      render json: {Accept: "True"}.to_json, :content_type => 'application/json'
+      #render json: {Accept: "True"}.to_json, :content_type => 'application/json'
     end
 
-    render json: {Accept: "False"}.to_json, :content_type => 'application/json'
+    #render json: {Accept: "False"}.to_json, :content_type => 'application/json'
   end
 
   def log_out
