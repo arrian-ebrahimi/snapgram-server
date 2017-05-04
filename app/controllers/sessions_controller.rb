@@ -46,6 +46,8 @@ class SessionsController < ApplicationController
   end
 
   def log_in
+    put "TESTESTTEST"
+    
     user = User.find(params[:name])
 
     if (params[:password] == user.password)
