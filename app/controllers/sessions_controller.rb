@@ -27,7 +27,9 @@ class SessionsController < ApplicationController
   end
 
   def get_user
-    render json: {User: User.find(params[:id])}.to_json, :content_type => 'application/json'
+    user = User.find(params[:id])
+
+    render json: {User: {id: user.id, name: user.name, created_at: user.created_at, updated_at: user.updated_at, friends: user.friends, numpics: user.numpics, listoffriends: user.listoffriends}}.to_json, :content_type => 'application/json'
   end
 
   def destroy_user
