@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def get_user
-    render json: {User: User.find_by(:name params[:name])}.to_json, :content_type => 'application/json'
+    render json: {User: User.find(params[:id])}.to_json, :content_type => 'application/json'
   end
 
   def destroy_user
