@@ -18,6 +18,8 @@ class SessionsController < ApplicationController
         id = user.id
       end
     end
+
+    render json: {Id: id}.to_json, :content_type => 'application/json'
   end
 
   def get_user
