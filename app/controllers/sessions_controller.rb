@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     puts "fedfssedf"
     puts params[:name]
     puts "--------"
-    
+
     @id = 0
     @user = User.all
 
@@ -65,7 +65,7 @@ class SessionsController < ApplicationController
   def log_in
     puts "TESTESTTEST"
 
-    user = User.find(params[:name])
+    user = User.find(params[:id])
 
     if (params[:password] == user.password)
       render json: {Accept: "True"}.to_json, :content_type => 'application/json'

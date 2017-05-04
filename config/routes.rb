@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'sessions/:id', to: 'sessions#destroy_user'
   get 'sessions/:id/:new_name/edit_name', to: 'sessions#update_name'
   get 'sessions/:user_id/:friend_id/edit_friends', to: 'sessions#add_friend'
-  get 'sessions/:name/:password', to: 'sessions#log_in'
+  get 'sessions/:id/:password/enter', to: 'sessions#log_in'
 
   #get 'photos(/:id)', to: :display
   #get '/sessions'  => 'sessions#get_user', :defaults => { :id => 1 }
