@@ -10,16 +10,16 @@ class SessionsController < ApplicationController
   end
 
   def get_id_by_name
-    id = nil
+    @id = 0
     @user = User.all
 
     @user.each do | user |
       if user.name == params[:name]
-        id = user.id
+        @id = user.id
       end
     end
 
-    render json: {Id: id}.to_json, :content_type => 'application/json'
+    render json: {Id: @id}.to_json, :content_type => 'application/json'
   end
 
   def get_user
