@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
 
   def get_id_by_name
     id = nil
+    @user = User.all
 
-    User.all.each do | row |
-      if row.name == params[:name]
-        id = row.id
+    @user.each do | user |
+      if user.name == params[:name]
+        id = user.id
       end
     end
   end
