@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   def get_id_by_name
     id = nil
 
-    User.each do | row |
+    User.all.each do | row |
       if row.name == params[:name]
         id = row.id
       end
