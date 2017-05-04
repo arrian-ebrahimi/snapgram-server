@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def get_user
-    render json: {User: User.find(params[:id])}.to_json, :content_type => 'application/json'
+    render json: {User: User.find_by(:name params[:name])}.to_json, :content_type => 'application/json'
   end
 
   def destroy_user
@@ -48,17 +48,13 @@ class SessionsController < ApplicationController
   def log_in
     puts "TESTESTTEST"
 
-    #user = User.find(params[:name])
+    user = User.find(params[:name])
 
-    #if (params[:password] == user.password)
-    #  render json: {Accept: "True"}.to_json, :content_type => 'application/json'
-    #end
+    if (params[:password] == user.password)
+      render json: {Accept: "True"}.to_json, :content_type => 'application/json'
+    end
 
-    #render json: {Accept: "False"}.to_json, :content_type => 'application/json'
-  end
-
-  def test
-    puts params[:test]
+    render json: {Accept: "False"}.to_json, :content_type => 'application/json'
   end
 
   #def log_out
