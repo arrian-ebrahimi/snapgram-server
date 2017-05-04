@@ -57,6 +57,10 @@ class SessionsController < ApplicationController
     #render json: {Accept: "False"}.to_json, :content_type => 'application/json'
   end
 
+  def test
+    puts params[:test]
+  end
+
   #def log_out
   #end
 end
